@@ -21,10 +21,15 @@ public class GestorEstudiantes {
         double mejorNota = -1;
 
         for (Estudiante estudiante : estudiantes) {
-            double media = calcularNotaMedia(estudiante); // Posible fallo aquí
-            if (media > mejorNota) {
-                mejorNota = media;
-                mejor = estudiante;
+            if (estudiante.getNotas() == null){
+                return null;
+            }
+            else {
+                double media = calcularNotaMedia(estudiante); // Posible fallo aquí
+                if (media > mejorNota) {
+                    mejorNota = media;
+                    mejor = estudiante;
+                }
             }
         }
         return mejor; // Error si la lista está vacía
